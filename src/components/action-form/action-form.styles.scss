@@ -1,0 +1,31 @@
+$mainColor:#DB8211;
+
+.action {
+    border-color:$mainColor
+}
+
+
+.action-frame {
+    padding:15px;
+    display: flex;
+    flex-direction: row wrap;
+
+    &.desc, .picture-pull {
+        flex: 1 1 auto;
+    }
+
+    .desc {
+        font-size: 17px;
+        line-height: 0.5;
+    }
+    .advice {
+        font-size: 0.8em;
+        color:$mainColor;
+    }
+    align-items: center;
+    
+
+    .picture-pull {
+        margin-left:20px;
+    }
+}

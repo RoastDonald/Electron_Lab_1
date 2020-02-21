@@ -1,0 +1,38 @@
+
+
+
+.trash-action {
+    position: absolute;
+    cursor: pointer;
+    top:44px;
+    margin-left:-28px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+
+
+
+
+.action-element svg:first-of-type  * {
+    transition: all .2s ease;
+}
+
+.action-element{
+    cursor: pointer;
+}
+
+
+.action-element:hover .trash-action {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+.action-element:hover svg:first-of-type  * {
+    
+    fill:white;
+}

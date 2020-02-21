@@ -1,0 +1,95 @@
+
+$text:#F4FAFF;
+$navy:#000A14;
+$border:#4373D3;
+$cancel:#ed2846;
+$hoverSubmit:#4f81e3;
+$hoverCancel:#f03c57;
+
+
+
+
+
+.element-form {
+    margin: auto 1vw;
+    background-color: $navy;
+    border:2px solid $border;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    padding: 10px;
+    color:$text;
+
+    .content{
+        display: flex;
+        flex-direction: column;
+
+        .btns {
+             margin:0 !important;
+           
+            }
+
+        
+
+        .field, .btns {
+            margin-bottom: 10px;
+
+            
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+
+            label, input {
+                width: 50%;
+            }
+           
+            input {
+                border:none;
+                border-bottom:1px solid $text;
+                padding: 5px;
+                
+                background-color:$navy ;
+                color:$text;
+            }
+
+            
+
+            .btn {
+                cursor: pointer;
+                padding: 10px;
+                border:none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                color:$text;
+                align-self: stretch;
+            }
+
+            
+          
+
+            .submit {
+                background-color: $border;
+        
+            }
+            .cancel {
+                background-color: $cancel;
+            }
+
+
+
+
+
+            .submit:hover {
+                background-color: $hoverSubmit;
+        
+            }
+            .cancel:hover {
+                background-color: $hoverCancel;
+            }
+        }
+
+    
+       
+    }
+}

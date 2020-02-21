@@ -1,6 +1,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const { ipcMain } = require('electron');
 
 const isDev = require('electron-is-dev');
 
@@ -8,9 +9,10 @@ let mainWindow;
 
 const createWindow = () => {
     mainWindow = new BrowserWindow({
-        width: 1280,
-        height: 720,
-        webPreferences: { nodeIntegration: true }
+        width: 800,
+        height: 600,
+        webPreferences: { nodeIntegration: true },
+        frame:false
     });
 
     mainWindow.setMenu(null)
@@ -27,6 +29,26 @@ const createWindow = () => {
 
     mainWindow.on('closed', () => mainWindow = null);
 }
+
+
+
+
+
+ipcMain.on('exitEvent', (event, arg) => {
+    app.quit();
+    
+  })
+
+ipcMain.on('hideEvent', (event, arg) => {
+    
+    
+  })
+
+
+
+
+
+
 
 app.on('ready', createWindow);
 

@@ -1,0 +1,21 @@
+.Header {
+    position: sticky;
+    padding:5px;
+    padding-bottom: 0;
+    background-color:#0E1318 ;
+    display: flex;
+    justify-content: flex-end;
+    -webkit-app-region:drag;
+    .option{
+        -webkit-app-region:no-drag;
+        margin-left:10px;
+        cursor: pointer;
+    }
+
+    .option:hover {background-color:'white';}
+    .menu {
+        position: absolute;
+        left:10px;
+    }
+
+}

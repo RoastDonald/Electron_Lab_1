@@ -1,0 +1,25 @@
+.icon{
+  margin: 5vh 1vw;  
+  display: flex;
+  align-items: center;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+button {
+    cursor: pointer;
+    border:none;
+    background:none;
+}
+
+ &:hover {
+     transform: rotate(360deg);
+
+ }
+
+}
+
+
+
+
+
+
+

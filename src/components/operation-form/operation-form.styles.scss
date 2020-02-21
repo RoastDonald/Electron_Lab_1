@@ -1,0 +1,96 @@
+.operation-form {
+    color:white;
+    font-size: 20px;
+
+    overflow: auto;
+
+    z-index: 100;
+
+    display: flex;
+    flex-direction: row wrap;
+    
+    position: relative;
+    top:200px
+}
+
+.graph-data {
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    // border-right: 2px solid blue;
+
+    .top-info{
+        margin-left: 69px;
+        
+        .text-info{
+            margin-left: 30px;
+        }
+    }
+}
+
+
+
+.operation-icon{
+    cursor: pointer;
+}
+
+
+.meta-data {
+
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column; 
+    .text-info{
+        margin-left: 30px;
+    }
+
+
+    .active * {
+        fill: white;
+    }
+    
+
+    // .markers {
+    //     line-height: 1;
+
+    //     &:nth-child(1)::before {
+    //         content: '';
+    //         display: block;
+    //         background-color: white;
+    //         width:20px;
+    //         height:20px;
+    //     }
+    // }
+
+    .calculation {
+        margin-left: 70px;
+    }
+
+    .arrayStart, .arrayEnd, .variable{
+        font-size: 25px;
+        padding: 3px;
+        
+    }
+
+    .arrayStart, .arrayEnd{
+        color:purple;
+    }
+
+    .actionIcon{
+        padding: 7px;
+        font-size: 25px;
+    }  
+
+    .coma {
+        font-size: 35px;
+        padding: 5px;
+        color:orange;
+    }
+
+    .indexVar{
+       
+       position: absolute;
+        margin-top: 29px;
+        font-size: 15px;
+    }
+}

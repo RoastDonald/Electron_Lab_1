@@ -1,0 +1,177 @@
+
+
+$mainColor:#DB8211;
+
+
+@keyframes highlight {
+    0%{
+        background-color: #000A14;
+    }
+
+    75%{
+        background-color: $mainColor;
+    }
+
+    100%{
+        background-color: #000A14;
+    }
+
+    
+}
+
+
+@keyframes inccorect {
+    0%{
+        background-color: #000A14;
+    }
+
+    75%{
+        background-color: #E94A73;
+    }
+
+    100%{
+        background-color: #000A14;
+    }
+
+    
+}
+
+@keyframes type {
+    0%{
+        background-color: #000A14;
+    }
+
+    75%{
+        background-color: #4373D3;
+    }
+
+    100%{
+        background-color: #000A14;
+    }
+
+    
+}
+
+
+
+
+
+
+.type-error{
+    animation: type 2s ease-in-out infinite;
+}
+
+.inccorect{
+    animation: inccorect 2s ease-in-out infinite;
+}
+
+
+.highlight {
+    animation: highlight 2s ease-in-out infinite;
+}
+
+.element {
+    padding: 10px;
+    display: flex;
+    background-color: #000A14;
+    color:#F4FAFF;
+    margin: 5vh 2vw;
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    border:2px solid #4373D3;
+
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+    
+
+    .name {
+        display: block;
+        text-align: center;
+    
+    }
+
+    .update-toggle {
+        position: relative;
+        visibility: hidden;
+        top:25px;
+        opacity: 0;
+        transition: .6s;
+        color:#4373D3;
+        cursor: pointer;
+    }
+
+    &:hover .update-toggle {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &:hover .delete-element {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &:hover .inverted-element {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &:hover .negative-display
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    
+
+    .delete-element{
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top:35px;
+        margin-left: 70px;
+        transition: .6s;
+    }
+
+    .inverted-element, .negative-display{
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        
+        padding: 1px 9px;
+        cursor: pointer;
+        border:2px solid #4373D3; //ff7df7
+        background-color: #ff7df7; //4373D3  e3be2b
+        border-radius: 50%; 
+        transition: .6s;
+    }
+
+    .inverted-element {
+        top:35px;
+    }
+
+    .negative-display {
+        top:80px;
+        margin-left: -20px;
+        padding: 1px 11px;
+    }
+
+ 
+
+   
+
+    
+    .inv {
+        border:2px solid #4373D3; //ff7df7
+        background-color: #e3be2b; //4373D3  e3be2b
+    }
+
+   
+    
+
+    
+  
+}
