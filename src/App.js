@@ -1,14 +1,24 @@
 import React from 'react';
-import MainWindow from './components/main-window/main-window.component';
+import {Switch, Route} from 'react-router-dom';
+import Header from './components/header/header.component';
+import Main from './components/main/main.components';
+import StartMenu from './components/start-menu/starter-menu.component';
 import './App.css';
-
-
 
 const App = () => {
 
   return (
    <div className="app">
-     <MainWindow/>
+    <Header/>
+      <Switch>
+        <Route exact path='/' component={StartMenu}/> 
+        <Route path='/user' render={()=>
+          (<div>test</div>) 
+        }/>
+
+        
+        <Route  exact path={`/basic-operations`} component={Main}/>
+     </Switch>
    </div>
   )
 }

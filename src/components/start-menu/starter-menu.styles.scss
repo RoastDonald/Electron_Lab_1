@@ -1,0 +1,21 @@
+.starter-back {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./back.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-items {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 55vw;
+    height: 50vh;
+
+}

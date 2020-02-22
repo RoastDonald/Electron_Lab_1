@@ -41,7 +41,7 @@ export default class Header extends React.Component {
             <Menu width={size} height={size} onClick={this.props.onBar}/>
             </div>
             <div className="option">
-                <Exit width={size-2} height={size-2} onClick={handleExitEvent}/>
+                <Exit width={size} height={size} onClick={handleExitEvent}/>
             </div>
         </div>
     )

@@ -1,5 +1,8 @@
 .Header {
-    position: sticky;
+    height: 7vh;
+    z-index: 10000;
+    position: relative;
+    width: 100vw;
     padding:5px;
     padding-bottom: 0;
     background-color:#0E1318 ;
@@ -8,7 +11,7 @@
     -webkit-app-region:drag;
     .option{
         -webkit-app-region:no-drag;
-        margin-left:10px;
+        margin: 0 10px;
         cursor: pointer;
     }
 
