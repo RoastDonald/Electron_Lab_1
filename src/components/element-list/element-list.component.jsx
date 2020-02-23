@@ -1,41 +1,31 @@
 import React from 'react';
 import './element-list.styles.scss';
-
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
 import EditableElement from '../editable-element/editable-element';
+import {selectElements} from '../../redux/elements/elements.selectors';
 
-class ElementList extends React.Component {
+const ElementList = ({elements})=>{
 
 
     
-
-    render(){
-        console.log(this.props.elements);
-
-      const elements = this.props.elements.map(({id,...props})=>(
-            <EditableElement
+return(
+    <div className="elements">
+        {
+            elements.map(({id,...props})=>(
+                <EditableElement
                 key={id}
                 id={id}
-                onFormSubmit={this.props.onFormSubmit}
-                onTrashClick={this.props.onTrashClick}
-                onInversionUpdate={this.props.onInversionUpdate}
-                onNegativeUpdate={this.props.onNegativeUpdate}
-                isLastOperand={this.props.isLastOperand}
-                onActionUpdate={this.props.onActionUpdate}
-               
                 {...props}
                 />
-        ));
-
-
-      
-        
-        return (
-            <div className="elements">
-                {elements}
-            </div>
-        )
-        
+            ))
+        }
+    </div>
+)
     }
-}
 
-export default ElementList;
+const mapStateToProps = createStructuredSelector({
+    elements:selectElements
+})
+
+export default connect(mapStateToProps)(ElementList);

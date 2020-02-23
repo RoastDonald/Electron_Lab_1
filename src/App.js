@@ -16,8 +16,7 @@ const App = () => {
           (<div>test</div>) 
         }/>
 
-        
-        <Route  exact path={`/basic-operations`} component={Main}/>
+        <Route exact path='/basic' component={Main}/>
      </Switch>
    </div>
   )

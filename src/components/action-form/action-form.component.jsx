@@ -1,18 +1,16 @@
 import React from 'react';
 import './action-form.styles.scss';
-
 import PictureSlider from '../picture-slider/picture-slider.component';
-export default class ActionForm extends React.Component {
-    constructor(props){
-        super(props);
+
+
+class ActionForm extends React.Component {
+ 
         //Issue with async : added to TODO
-        this.state = {
-            action:'minus',
+        state = {
+            action: 'minus'
         };
 
-        this.handleActionString = this.handleActionString.bind(this);
 
-}
     handleActionString =(string)=>{
         this.setState(()=>({
             action:string
@@ -70,3 +68,5 @@ export default class ActionForm extends React.Component {
        )
     }
 }
+
+export default ActionForm;

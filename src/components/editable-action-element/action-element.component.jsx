@@ -1,6 +1,8 @@
 import React from 'react';
 import './action-element.styles.scss';
 
+
+
 import {ReactComponent as Minus} from './minus.svg';
 import {ReactComponent as Multiply} from './multiply.svg';
 import {ReactComponent as Plus} from './plus.svg';
@@ -14,7 +16,7 @@ import {ReactComponent as DisJ} from './DisJ.svg';
 import ActionForm from '../action-form/action-form.component';
 
 
-export default class ActionElement extends React.Component {
+ class ActionElement extends React.Component {
 
     state = {
         isOpen:false
@@ -32,7 +34,7 @@ export default class ActionElement extends React.Component {
 
     handleFormUpdate = (action) =>{
         
-        this.props.onActionUpdate(action);
+        this.props.updateOperation(action);
         this.handleFormClose();
     }
 
@@ -40,7 +42,7 @@ export default class ActionElement extends React.Component {
 
 
     handleDeleteAction = ()=>{
-        this.props.onTrashClick(this.props.id);
+        this.props.onDeleteElement(this.props.id);
     }
     
 
@@ -80,3 +82,5 @@ export default class ActionElement extends React.Component {
         }
     }
 }
+
+export default ActionElement;

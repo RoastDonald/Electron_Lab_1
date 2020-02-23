@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.styles.scss';
-
+import {Link} from 'react-router-dom';
 import {ReactComponent as Exit} from './cancel.svg';
 import {ReactComponent as Hide} from './blind.svg';
 import {ReactComponent as Menu} from './menu.svg';
@@ -38,7 +38,9 @@ export default class Header extends React.Component {
                 <Hide width={size} height={size} onClick={handleHideEvent}/>
             </div>
             <div className="option menu">
-            <Menu width={size} height={size} onClick={this.props.onBar}/>
+            <Link to='/'>
+                <Menu width={size} height={size}/>\
+            </Link>
             </div>
             <div className="option">
                 <Exit width={size} height={size} onClick={handleExitEvent}/>

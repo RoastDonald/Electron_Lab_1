@@ -3,13 +3,12 @@ import './operation-form.styles.scss';
 import Plot from 'react-plotly.js';
 import {ReactComponent as Graph} from './graph.svg'
 import {ReactComponent as Operation} from './operations.svg'
-
-
-
-
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
+import {selectElements} from '../../redux/elements/elements.selectors';
 import CalculationFormula from '../calculationFormula/calculation-formula.component';
 
-export default class OperationForm extends React.Component {
+class OperationForm extends React.Component {
     
 
     state = {
@@ -17,10 +16,7 @@ export default class OperationForm extends React.Component {
         inv:false
     }
 
-    fs = false;
-    static on;
-    static off;
-
+   
 
     VALUE_EXPRASSION = {
         from:null,
@@ -31,21 +27,13 @@ export default class OperationForm extends React.Component {
 
     hypotheses = [];
 
-    /*
-        left.from (a1)
-        left.to(a2)
 
-        right.from(b1)
-        right.to(b2)
-
-    */
 
     handleChecker = () =>{
         let target =  document.querySelector("svg[class~='operation-icon']");
         let name = target.className.baseVal;
         
     
-        console.log(name.search('active'));
         if(name.search('active') !== -1){
             target.classList.remove('active');
         }
@@ -179,12 +167,12 @@ export default class OperationForm extends React.Component {
            
 
             
-            if(left.negative)left  = this.middlewareNegative(left);
-            if(right.negative)right  = this.middlewareNegative(right);
+            if(left.isNegative)left  = this.middlewareNegative(left);
+            if(right.isNegative)right  = this.middlewareNegative(right);
            
 
-            if(left.inverted)left = this.middlewareInversion(left);
-            if(right.inverted)right = this.middlewareInversion(right);
+            if(left.isInverted)left = this.middlewareInversion(left);
+            if(right.isInverted)right = this.middlewareInversion(right);
           
 
 
@@ -513,3 +501,9 @@ export default class OperationForm extends React.Component {
         )
     }
 }
+
+const mapStateToProps = createStructuredSelector({
+    elements:selectElements
+})
+
+export default  connect(mapStateToProps)(OperationForm);

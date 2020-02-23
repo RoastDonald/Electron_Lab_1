@@ -10,7 +10,7 @@ const StarterMenu = ({match})=>{
             <Route  exact path={`${match.path}`} render={()=>{
                 return (
                     <div className="menu-items"> 
-                        <MenuItem title='basic-operations' complexity='3'/>
+                        <MenuItem title='basic' complexity='3'/>
                         <MenuItem title='test2' complexity='3'/>
                     </div>
                 )

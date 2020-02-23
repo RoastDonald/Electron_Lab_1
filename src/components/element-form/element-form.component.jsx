@@ -1,13 +1,14 @@
 import React from 'react';
 import './element-form.styles.scss';
 
+
 class ElementForm extends React.Component {
  
     state={
         name:this.props.name || '',
         from:this.props.from || '',
         to:this.props.to || '',
-        id:this.props.id || null,
+        id:this.props.id || null
     }
 
 
@@ -34,10 +35,6 @@ class ElementForm extends React.Component {
 
 
 
-
-
-
-
     handleSubmit = () =>{
       
 
@@ -46,19 +43,12 @@ class ElementForm extends React.Component {
                 id:this.state.id,
                 from:this.state.from,
                 to:this.state.to,
-                inverted:this.props.isInverted
+                isInverted:this.props.isInverted
             });
-
            
     }
 
-
-   
-
     render(){
-        
-        
-        
 
         const submitText = this.props.id ? 'Update': 'Create';
         return (
@@ -109,5 +99,6 @@ class ElementForm extends React.Component {
         )
     }
 }
+
 
 export default ElementForm;

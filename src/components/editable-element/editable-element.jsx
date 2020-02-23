@@ -5,63 +5,64 @@ import ElementForm from '../element-form/element-form.component';
 import Element from '../element/element.component';
 import ActionElement from '../editable-action-element/action-element.component';
 
+import {
+    setInversion,
+    setNegative,
+    updateOperand,
+    deleteElement,
+    updateOperation
+    } from '../../redux/elements/elements.actions';
+
+
+import {connect} from 'react-redux';
 
 class EditableElement extends React.Component {
 
+    
+
+
     state = {
         editFormOpen:false,
-        light:false,
-        inverted:false,
-        negative:false,
+        isInverted:false,
+        isNegative:false,
   
     };
 
 
-    onLightPush = ()=>{             
-        this.setState({light:true});    
-
-    }
-
-    handleLightPush = ()=>{
-        this.onLightPush();
-    }
-
-
-    toInvertDATA = ()=>{
-        
-        this.setState({inverted:!this.state.inverted},()=>{
-            this.props.onInversionUpdate({
+    onInvertData = ()=>{
+        console.log('called');
+        this.setState({isInverted:!this.state.isInverted},()=>{
+            this.props.setInversion({
                 id:this.props.id,
-                inverted:this.state.inverted,
-                isCorrect:this.state.isCorrect
+                isInverted:this.state.isInverted,
             });
         })
         
     }
 
-    toNegativeData = () =>{
-        
-        this.setState({negative:!this.state.negative},()=>{
-            this.props.onNegativeUpdate({
+    onNegativeData = () =>{
+
+        this.setState({isNegative:!this.state.isNegative},()=>{
+            this.props.setNegative({
                 id:this.props.id,
-                negative:this.state.negative
+                isNegative:this.state.isNegative
             });
         })
     }
 
 
-    handleNegativeDATA = ()=>{
-        this.toNegativeData();
+    handleNegativeData = ()=>{
+
+        this.onNegativeData();
     }
 
-    handleInvertDATA =()=>{
+    handleInvertData =()=>{
 
-        this.toInvertDATA();
+        this.onInvertData();
     }
 
 
 
-    //delivery
     handleEditClick = ()=>{
         this.openForm();
     }
@@ -70,12 +71,13 @@ class EditableElement extends React.Component {
         this.closeForm();   
     }
 
-    handleSubmit = (element) =>{
-        this.props.onFormSubmit(element);
+    handleOperandSubmit = (element) =>{
+        this.props.updateOperand(element);
         this.closeForm();
     }
 
-    //Prepate for delivery
+  
+
 
     closeForm = ()=>{
         this.setState({editFormOpen:false});
@@ -88,15 +90,17 @@ class EditableElement extends React.Component {
 
 
     render(){
+
+
+        console.log('EDIT',this.props);
        
         if(this.props.type === 'action'){
             return (
-                <ActionElement 
-                    onActionUpdate={this.props.onActionUpdate}
-                   
+                <ActionElement  
                     action={this.props.action}
-                    onTrashClick={this.props.onTrashClick}
                     id={this.props.id}
+                    onActionFormSubmit={this.props.updateOperation}
+                    onDeleteElement={this.props.deleteElement}
                     />
             )
         }
@@ -107,13 +111,12 @@ class EditableElement extends React.Component {
             return (
                 <ElementForm
                  
-                    isInverted={this.state.inverted}
+                    isInverted={this.state.isInverted}
                     id={this.props.id}
                     name={this.props.name}
                     from={this.props.from}
                     to={this.props.to}
-                    onLightPush={this.handleLightPush}
-                    onFormSubmit={this.handleSubmit}
+                    onFormSubmit={this.handleOperandSubmit}
                     onFormClose={this.handleFormClose}
                     />
             )
@@ -121,19 +124,19 @@ class EditableElement extends React.Component {
         else {
             return(
                 <Element
-                    onNegativeDATA={this.handleNegativeDATA}
-                    onInvertDATA={this.handleInvertDATA}
-                    isInverted={this.state.inverted}
-                    isNegative={this.state.negative}
+
+        
+            
+                    onNegativeData={this.handleNegativeData}
+                    onInvertData={this.handleInvertData}
+                    isInverted={this.state.isInverted}
+                    isNegative={this.state.isNegative}
                     from={this.props.from}
                     to={this.props.to}
                     id={this.props.id}
                     name={this.props.name}
                     onEditClick={this.handleEditClick}
-                    onTrashClick={this.props.onTrashClick}
-                    
-
-                    isHighlighted={this.state.light}
+                    onDeleteElement={this.props.deleteElement}
                     />
             )
         }
@@ -141,4 +144,12 @@ class EditableElement extends React.Component {
 }
 }
 
-export default EditableElement;
+const mapDispatchToProps = dispatch =>({
+  setInversion: (element)=>dispatch(setInversion(element)),
+  setNegative: (element)=>dispatch(setNegative(element)),
+  updateOperand:(element)=>dispatch(updateOperand(element)),
+  deleteElement:(element)=>dispatch(deleteElement(element)),
+  updateOperation:(element)=>dispatch(updateOperation(element))
+});
+
+export default connect(null,mapDispatchToProps)(EditableElement);
