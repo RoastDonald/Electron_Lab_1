@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StarterContainer = styled.div`
-    font-family: 'Trade Winds', ;
+    font-family: 'Trade Winds';
     width: 100vw;
     font-size: 15px;
     height: 100vh;

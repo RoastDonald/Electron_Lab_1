@@ -38,5 +38,9 @@ export const ComplexityContainer = styled.div`
 width:90%;
 height: 60%;
 border-radius: 10px;
+background-image:url(${({topic})=>topic ? topic : ''});
+background-position:center;
+background-size:cover;
+opacity:.7;
 ${MenuItemsStyles}
 `
