@@ -17,8 +17,6 @@ class ActionForm extends React.Component {
         }));
     }
 
-  
-
     handleActionSubmit = ()=>{
         this.props.onActionFormSubmit({
             id:this.props.id || null,

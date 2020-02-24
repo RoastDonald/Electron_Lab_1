@@ -28,6 +28,8 @@ class EditableElement extends React.Component {
   
     };
 
+  
+
 
     onInvertData = ()=>{
         console.log('called');
