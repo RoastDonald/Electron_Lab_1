@@ -4,7 +4,7 @@ export const GotoGraphButton = styled(Button)`
     cursor:pointer;
     width:250px;
     height:200px; 
-    margin-right:50px;
+    
     align-self:center;
 `
 export const GotoGraphContainer = styled.div`

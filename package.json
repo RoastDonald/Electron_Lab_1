@@ -6,6 +6,7 @@
     "electron-is-dev": "^1.1.0",
     "node-sass": "^4.13.1",
     "plotly.js": "^1.52.1",
+    "rc-queue-anim": "^1.8.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-persist": "^1.0.2",
@@ -13,11 +14,14 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
+    "react-transition-group": "^4.3.0",
     "redux": "^4.0.5",
+    "redux-form": "^8.3.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.0.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "uuid": "^7.0.1"
   },
   "main": "main.js",
   "homepage": ".",

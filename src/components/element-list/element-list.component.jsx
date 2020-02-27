@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import EditableElement from '../editable-element/editable-element';
 import {selectElements} from '../../redux/elements/elements.selectors';
-
 const ElementList = ({elements})=>{
 
 

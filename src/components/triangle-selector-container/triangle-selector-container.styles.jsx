@@ -82,8 +82,7 @@ export const LeftItem = styled(LeftBottom)`
     
     export const Container = styled.div`
     margin-top:-100px;
-    width:200px;
-    height:200px;
+    flex: 1 1 33vw;
     `
     
 
@@ -91,10 +90,20 @@ export const ActionContainer  = styled(Action)`
     cursor:pointer;
     width:190px;
 
+    path {
+        transition:all .3s .3s;
+    }
+    
+    &:hover path {
+        d:path("M309 16.5C298.891 48.3442 343.742 98.7705 262 120C164.852
+            120 3 139.849 3 103C3 66.151 -22.1477 2 75 2C172.148 2 316.381
+            -6.75132 309 16.5Z");
+    }
+
 `
 
 export const TriangleSelectorContainer = styled.div`
-    margin-left:10%;
+    width:25vw;
     display:flex;
     height:92vh;
     align-items:center;

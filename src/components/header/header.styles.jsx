@@ -4,9 +4,8 @@ import {Link} from 'react-router-dom';
 export const HeaderContainer = styled.div`
     height:40px;
     z-index: 10000;
-    position: relative;
+    position: static;
     width: 100vw;
-    padding-top: 5px;
     padding-bottom: 0;
     background-color:#0E1318 ;
     display: flex;

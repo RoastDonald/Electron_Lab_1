@@ -1,12 +1,18 @@
 import  React from 'react';
 import {AddButtonContainer} from './togglable-triangle.styles';
-const ToggleableTriangle = ()=>{
+import {connect} from 'react-redux';
+import trianglesType from '../../redux/triangles/triangles.type';
 
 
 
-    return (
-        <AddButtonContainer/>
+const ToggleableTriangle = ({openCreate})=>(
+        <AddButtonContainer onClick={openCreate}/>
     )
-}
 
-export default ToggleableTriangle;
+
+    
+const mapDispatchToProps = dispatch=>({
+    openCreate: ()=>dispatch({type:trianglesType.OPEN_CREATE})
+});
+
+export default connect(null,mapDispatchToProps)(ToggleableTriangle);
