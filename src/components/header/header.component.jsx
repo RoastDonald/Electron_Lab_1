@@ -1,6 +1,7 @@
 import React from 'react';
 import {ReactComponent as Exit} from './cancel.svg';
 import {ReactComponent as Hide} from './blind.svg';
+import {ReactComponent as Profile} from './account.svg';
 import {HeaderContainer, OptionContainer, Burger, MenuContainer, Bird } from './header.styles';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -56,11 +57,19 @@ class Header extends React.Component {
                 </MenuContainer>
                 : null
             }
-
-
+                {currentUser?
+                <OptionContainer as="div">
+                    <Link to='/user'><Profile width={size} height={size} /></Link>
+                </OptionContainer>
+                 :null
+                }
+                
                 <OptionContainer as="div" >
                     <Hide width={size} height={size} onClick={handleHideEvent}/>
                 </OptionContainer>
+               
+
+
 
                 <OptionContainer as="div">
                     <Exit width={size} height={size} onClick={handleExitEvent}/>

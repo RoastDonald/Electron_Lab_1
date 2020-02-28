@@ -68,7 +68,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     -webkit-app-region:drag;
 
-
+    
 
 `
 
