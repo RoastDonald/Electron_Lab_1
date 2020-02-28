@@ -27,10 +27,9 @@ class EditableElement extends React.Component {
         isNegative:false,
   
     };
+    
 
   
-
-
     onInvertData = ()=>{
         console.log('called');
         this.setState({isInverted:!this.state.isInverted},()=>{

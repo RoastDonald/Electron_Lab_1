@@ -1,8 +1,12 @@
 import React from 'react';
 import {ReactComponent as Exit} from './cancel.svg';
 import {ReactComponent as Hide} from './blind.svg';
-import {HeaderContainer, OptionContainer, Burger, MenuContainer} from './header.styles';
+import {HeaderContainer, OptionContainer, Burger, MenuContainer, Bird } from './header.styles';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
+import {currentSelector} from '../../redux/user/user.selectors';
+import {auth} from '../../firebase/firebase.utils';
 
 const handleExitEvent =()=>{
     const {ipcRenderer} = window.require("electron")
@@ -29,7 +33,7 @@ class Header extends React.Component {
     }
 
     render(){
-        
+        const {currentUser} = this.props;
         return(
             <HeaderContainer>
                 <OptionContainer start="true">
@@ -39,9 +43,15 @@ class Header extends React.Component {
                 this.state.isMenuOpen ?
                 <MenuContainer>
                     <ul>
+                        <Bird height={size} width={size}/>
                         <li><Link to='/'>Menu</Link></li>
-                        <li>sign in</li>
-                        <li>sign up</li>
+                        {
+                            currentUser?
+                                <li onClick={()=> auth.signOut()}>Log out</li>
+                            :
+                                <li><Link to='/user'>Log in </Link></li>
+                        }
+                            
                     </ul>
                 </MenuContainer>
                 : null
@@ -51,7 +61,7 @@ class Header extends React.Component {
                 <OptionContainer as="div" >
                     <Hide width={size} height={size} onClick={handleHideEvent}/>
                 </OptionContainer>
-            
+
                 <OptionContainer as="div">
                     <Exit width={size} height={size} onClick={handleExitEvent}/>
                 </OptionContainer>
@@ -60,4 +70,9 @@ class Header extends React.Component {
     }
     
 }
-export default Header;
+
+const mapStateToProps = createStructuredSelector({
+    currentUser:currentSelector
+})
+
+export default connect(mapStateToProps)(Header);

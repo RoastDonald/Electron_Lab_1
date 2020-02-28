@@ -1,7 +1,6 @@
 import React from 'react';
 import './toggleable-form.styles.scss';
 
-
 import { ReactComponent as PlusIcon } from './plus.svg';
 import { ReactComponent as PlusAction } from './plusAction.svg';
 import {connect} from 'react-redux';

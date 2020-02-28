@@ -1,7 +1,20 @@
 import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 import {ReactComponent as Menu} from './menu.svg';
-import {ReactComponent as Bird} from './hummingbird.svg';
+import {ReactComponent as Bi} from './hummingbird.svg';
+
+
+export const Bird = styled(Bi)`
+    ${({width,height})=>{
+        return `
+            width:${width}px;
+            height:${height}px;
+            position:absolute;
+            top:20px;
+            left:0;
+        `
+    }}
+`
 
 
 export const Burger = styled(Menu)`
@@ -19,7 +32,6 @@ export const MenuContainer = styled.div`
     background:#0E1318;
     z-index:1000;
     color:white;
-
     
 
     ul {
@@ -29,19 +41,15 @@ export const MenuContainer = styled.div`
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-        height:140px;
-        width:90px;
+        height:85px;
+        width:100px;
         
+
         li {
-            &:first-child{
-                &:before {
-                    content:url("11");
-                    size:20px;
-                }
-            }
-            
+            cursor:pointer;
+        
             text-transform:capitalize;
-            font-size:20px;
+            font-size:25px;
 
             a { text-decoration: none; color:white}
         }

@@ -24,13 +24,13 @@ const FormComponent = (props)=>{
             
             {/*LEFT*/}
             <div>
-                <label htmlFor='left'>_TOP</label>
+                <label htmlFor='left'>_LEFT</label>
                 <Field component='input' type='text' name='left'/>
             </div>
             
             {/*RIGHT*/}
             <div>
-                <label htmlFor='right'>_TOP</label>
+                <label htmlFor='right'>_RIGHT</label>
                 <Field component='input' type='text' name='right'/>
             </div>
 
