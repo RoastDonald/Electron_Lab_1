@@ -6,7 +6,6 @@ const INITIAL_STATE = {
     triangles:[],
     formType:'none'
 };
-
 const triangleReducer = (state = INITIAL_STATE, action)=>{
     switch(action.type){
         case triangleTypes.CREATE_TRIANGLE:
@@ -15,9 +14,11 @@ const triangleReducer = (state = INITIAL_STATE, action)=>{
                 triangles: hanldeCreation(state,action.payload)
             }
 
-
-
-            
+        case triangleTypes.UPDATE_TRIANGLE:
+            return {
+                ...state,
+                // triangles:handleEdition(state, action.payload)
+            }
         case triangleTypes.OPEN_CREATE:
             return {
                 ...state,

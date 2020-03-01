@@ -1,12 +1,22 @@
 import React from 'react';
 import {TringleFigure} from './editable-triangle.styles';
-const EditableTriangle = ()=>{
+import {connect} from 'react-redux';
 
-    return(
+const EditableTriangle = (props)=>{
+
+    const {openEditForm} = props;
+
+    return (
         <TringleFigure
-            onClick={()=>console.log('called')}
+            onClick={openEditForm}
         />
-    )
+        )
+            
 }
 
-export default EditableTriangle;
+
+const mapDispatchToProps = dispatch =>({
+    openEditForm:()=>dispatch({type:'OPEN_EDIT'})
+})
+
+export default connect(null,mapDispatchToProps)(EditableTriangle);

@@ -8,6 +8,8 @@ export const selectTringlesElements = createSelector(
     tringles=>tringles.triangles
 );
 
+
+
 export const selectFormType = createSelector(
     [selectTriangles],
     trianglesSection=>trianglesSection.formType

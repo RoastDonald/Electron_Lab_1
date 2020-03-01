@@ -6,7 +6,6 @@ import {MainContainer} from './basic.styles';
 
 
 const Basic = ()=>(
-    
     <MainContainer>
         <RollBar/>
         <OperationForm/>

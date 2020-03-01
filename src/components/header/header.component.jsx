@@ -34,6 +34,7 @@ class Header extends React.Component {
     }
 
     render(){
+        console.log('render header');
         const {currentUser} = this.props;
         return(
             <HeaderContainer>
@@ -63,7 +64,7 @@ class Header extends React.Component {
                 </OptionContainer>
                  :null
                 }
-                
+
                 <OptionContainer as="div" >
                     <Hide width={size} height={size} onClick={handleHideEvent}/>
                 </OptionContainer>

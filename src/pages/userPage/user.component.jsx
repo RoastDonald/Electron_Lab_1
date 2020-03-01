@@ -6,29 +6,25 @@ import {connect} from 'react-redux';
 import {signInWithGoogle, auth, createUserProfile} from '../../firebase/firebase.utils';
 import {createStructuredSelector} from 'reselect';
 import {currentSelector} from '../../redux/user/user.selectors';
-import { css } from "@emotion/core";
-import {PacmanLoader} from "react-spinners";
+import withSpinner from '../../components/with-spinner/with-spinner.component';
 
-
-const override = css`
-  display: block;
-  margin:10px;
-`;
 
 class UserPage extends React.Component {
 
     state = {
         toggleForm:true,
+        loading:false
     };
 
 
-    // shouldComponentUpdate(prevProps,{toggleForm: previous}){
-    //     const {toggleForm: current} = this.state; 
-    //     if(current === previous)
-    //         return false
-    //     else 
-    //         return true;
-    // }
+    shouldComponentUpdate({currentUser: prevUser},{toggleForm: previousForm}){
+        const {toggleForm: currentForm} = this.state; 
+        const {currentUser} = this.props;
+        if(currentForm === previousForm && currentUser === prevUser )
+            return false
+        else 
+            return true;
+    }
 
 
     handleSignInForm =()=>{
@@ -59,8 +55,8 @@ class UserPage extends React.Component {
     }
 
     handleAuth = async data =>{
-        const {email,password} = data;
         this.setState({loading:true});
+        const {email,password} = data;
         try {
             auth.signInWithEmailAndPassword(email,password);
 
@@ -89,10 +85,12 @@ class UserPage extends React.Component {
                             this.state.toggleForm ?
                                 <SignInReduxForm
                                     onSubmit={this.handleAuth}
-                                /> 
-                            :
-                                <SignUpReduxForm
+                                    isLoading={this.state.isLoading}
+                                    /> 
+                                    :
+                                    <SignUpReduxForm
                                     onSubmit={this.handleRegistration}
+                                    isLoading={this.state.isLoading}
                                 />
                             } 
                 </Prompt>
@@ -113,11 +111,7 @@ class UserPage extends React.Component {
 
 class  SignUpForm extends React.Component{
 
-    state = {
-        loading:false
-    }
-    
-    
+
     render(){
         const {handleSubmit} = this.props;
         return(
@@ -144,24 +138,16 @@ class  SignUpForm extends React.Component{
 
                 <div>
                     <input type="submit" value="Sign Up" onClick={handleSubmit}/>
-                    <PacmanLoader
-                        size={16}
-                        color='#502f54'
-                        css={override}
-                        loading={this.state.loading}
-                    />
                 </div>
             </form>
     )
-    }
+}
 }
 
 
 class SingInForm extends React.Component{
     
-    state={
-        loading:false
-    } 
+  
 
     render(){
         console.log(this.state);
@@ -180,20 +166,14 @@ class SingInForm extends React.Component{
 
             <div>
                 <input type="submit" value="Sign In" onClick={handleSubmit}/>
-                <PacmanLoader
-                    size={16}
-                    color='#502f54'
-                    css={override}
-                    loading={this.state.loading}
-                />
             </div>
         </form>
     )
     }
 }
 
-const SignInReduxForm = reduxForm({form:'sign-in'})(SingInForm);
-const SignUpReduxForm = reduxForm({form:'sign-up'})(SignUpForm);
+const SignInReduxForm = withSpinner(reduxForm({form:'sign-in'})(SingInForm));
+const SignUpReduxForm = withSpinner(reduxForm({form:'sign-up'})(SignUpForm));
 
 
 const mapStateToProps = createStructuredSelector({
