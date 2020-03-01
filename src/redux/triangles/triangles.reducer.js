@@ -1,9 +1,12 @@
 import triangleTypes from './triangles.type';
 import {
-    hanldeCreation
+    hanldeCreation,
+    handleEdition,
+    handleDelition
 } from './triangles.utils';
 const INITIAL_STATE = {
     triangles:[],
+    currentEdit:null,
     formType:'none'
 };
 const triangleReducer = (state = INITIAL_STATE, action)=>{
@@ -12,12 +15,6 @@ const triangleReducer = (state = INITIAL_STATE, action)=>{
             return {
                 ...state,
                 triangles: hanldeCreation(state,action.payload)
-            }
-
-        case triangleTypes.UPDATE_TRIANGLE:
-            return {
-                ...state,
-                // triangles:handleEdition(state, action.payload)
             }
         case triangleTypes.OPEN_CREATE:
             return {
@@ -28,8 +25,20 @@ const triangleReducer = (state = INITIAL_STATE, action)=>{
         case triangleTypes.OPEN_EDIT:
             return {
                 ...state,
-                formType:'edit'
+                formType:'edit',
+                currentEdit:handleEdition(state, action.payload)
             }
+        case triangleTypes.DELETE_TRIANGLE:
+            return {
+                ...state,
+                triangles:handleDelition(state,action.payload)
+            }
+        case triangleTypes.OPEN_POP_UP:
+            return {
+                ...state,
+                formType:'choose'
+            }
+        
         case triangleTypes.CLOSE_FORM:
             return {
                 ...state,

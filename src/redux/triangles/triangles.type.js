@@ -11,6 +11,8 @@ export default {
     //FORMS
     CLOSE_FORM: 'CLOSE_FORM',
     OPEN_CREATE: 'OPEN_CREATE',
-    OPEN_EDIT:'OPEN_EDIT'
+    OPEN_EDIT:'OPEN_EDIT',
+
+    OPEN_POP_UP:'OPEN_POP_UP'
     
 };

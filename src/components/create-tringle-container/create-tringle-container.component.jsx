@@ -1,50 +1,12 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
-import {
-    UpdateTriangleContainer,
-    SetButton,
-    ResetButton,
-    UpdateTringle,
-    CloseButton
-    } from './create-tringle-container.styles';
-import {createTringle} from '../../redux/triangles/triangles.actions';
 import {connect} from 'react-redux';
-const FormComponent = (props)=>{  
-    const { handleSubmit , reset, onClose } = props;
+import CreateFormComponent  from '../triangle-form/triangle-form.component'; 
+import {createTringle} from '../../redux/triangles/triangles.actions';
+import {UpdateTriangleContainer, UpdateTringle} from './create-tringle-container.styles';
 
 
-    return (
-        <form>
 
-            {/*TOP*/}
-            <div>
-                <label htmlFor='top'>_TOP</label>
-                <Field component='input' type='text' name='top'/>
-            </div> 
-            
-            {/*LEFT*/}
-            <div>
-                <label htmlFor='left'>_LEFT</label>
-                <Field component='input' type='text' name='left'/>
-            </div>
-            
-            {/*RIGHT*/}
-            <div>
-                <label htmlFor='right'>_RIGHT</label>
-                <Field component='input' type='text' name='right'/>
-            </div>
-
-            <ResetButton onClick={reset}/>
-            <SetButton onClick={handleSubmit}/>
-            <CloseButton onClick={onClose}/>
-        </form>
-        )
-    }
-
-   
-    
-const FormReduxComponent = reduxForm({form:'createTriangle'})(FormComponent);
-
+const FormReduxComponent = CreateFormComponent('createTriangle');
 
 
 const CreateTriangleContainer = (props)=>(
@@ -56,6 +18,7 @@ const CreateTriangleContainer = (props)=>(
             />
     </UpdateTriangleContainer>        
 );
+
 
 
 const mapDispatchToProps = dispatch =>({

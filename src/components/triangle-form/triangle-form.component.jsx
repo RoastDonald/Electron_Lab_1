@@ -2,11 +2,14 @@ import React from 'react';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form/immutable';
 import {ResetButton, SetButton, CloseButton} from './trinagle-form.styles';
-import { createStructuredSelector } from 'reselect';
+import {connect} from 'react-redux';
 
 const FormComponent = (props)=>{  
-    const { handleSubmit , reset, onClose } = props;
+    const { handleSubmit , reset, onClose, currentEdit } = props;
 
+    if(!!currentEdit){
+        var {top, left, right} = currentEdit;
+    }
 
     return (
         <form>
@@ -14,19 +17,19 @@ const FormComponent = (props)=>{
             {/*TOP*/}
             <div>
                 <label htmlFor='top'>_TOP</label>
-                <Field component='input' type='text' name='top'/>
+                <Field component='input' value={top? top : ""} type='text' name='top'/>
             </div> 
             
             {/*LEFT*/}
             <div>
                 <label htmlFor='left'>_LEFT</label>
-                <Field component='input' type='text' name='left'/>
+                <Field component='input' value={right? left : ""} type='text' name='left'/>
             </div>
             
             {/*RIGHT*/}
             <div>
                 <label htmlFor='right'>_RIGHT</label>
-                <Field component='input' type='text' name='right'/>
+                <Field component='input' value={right? right : ""} type='text' name='right'/>
             </div>
 
             <ResetButton onClick={reset}/>
@@ -36,8 +39,8 @@ const FormComponent = (props)=>{
         )
 }
 
-const mapStateToProps = createStructuredSelector({
-
+const mapDispatchToProps = dispatch =>({
+    //for future updates
 });
 
 export default (formName)=>
@@ -45,5 +48,5 @@ export default (formName)=>
             reduxForm({
                 form:formName
             }),
-            connect(mapStateToProps)
+            connect(null,mapDispatchToProps)
         )(FormComponent);

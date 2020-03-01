@@ -15,3 +15,7 @@ export const selectFormType = createSelector(
     trianglesSection=>trianglesSection.formType
 )
 
+export const selectCurrentEdit = createSelector(
+    [selectTriangles],
+    triangles=>triangles.currentEdit
+)
