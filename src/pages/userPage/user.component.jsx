@@ -41,7 +41,6 @@ class UserPage extends React.Component {
         const {name, password, confirmPassword, email} = data;
         console.table(data);
         if(password !== confirmPassword){
-            console.log('incorrect password repeat');
             return;
         }
         try {

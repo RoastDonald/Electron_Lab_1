@@ -23,7 +23,7 @@ class App  extends React.Component  {
           const userRef = await createUserProfile(user);
         
           userRef.onSnapshot(snap =>{
-         
+              console.log(snap);
               setCurrentUser({
                 id:snap.id,
                 ...snap.data()

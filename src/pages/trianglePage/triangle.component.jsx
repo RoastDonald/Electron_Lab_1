@@ -6,8 +6,13 @@ import GotoGraph from '../../components/goto-graph-container/goto-graph-containe
 const Triangle = ()=>(
     <TrianglePageContainer>
         <RollBarTriangleContainer/>
-        <TriangleSelectorContainer/>
-        <GotoGraph/>
+
+
+        <div>
+            <TriangleSelectorContainer/>
+            <GotoGraph/>
+        </div>
+        
     </TrianglePageContainer>
 
 )

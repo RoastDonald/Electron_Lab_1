@@ -14,27 +14,28 @@ const config = {
     measurementId: "G-MKTNXH42X7"
   };
 
-export const createUserProfile = async  (user, otherData) =>{
+export const createUserProfile = async  (user, data) =>{
+    console.log(data);
     if(!user)return;
 
     const userRef = firestore.doc(`users/${user.uid}`);
+    const userExtraRef = firestore.doc(`users/${user.uid}`).collection('elements').doc();
     const snap = await userRef.get();
     if(!snap.exists){
-        const {email,name} = user;
+        const {email, dispayName} = user;
         const createdAt = new Date();
-        console.log(user);
+        console.log(email,createdAt);
         try {
           userRef.set({
-            name,
+            dispayName,
             email,
             createdAt,
           });
+
         }catch(e){
           console.log(e);
         } 
     }
-
-
 
     return userRef;
 }
