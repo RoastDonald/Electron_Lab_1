@@ -5,7 +5,7 @@ import {ReactComponent as Close} from './close-button.svg';
 
 const buttonStyles = css`
     cursor:pointer;
-    position:relative;
+
 `;
 
 

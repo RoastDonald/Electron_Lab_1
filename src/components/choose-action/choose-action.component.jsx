@@ -14,4 +14,5 @@ const mapDispatchToProps = dispatch =>({
     minusAction:()=>dispatch({type:'MINUS_ACTION'})
 });
 
+
 export default connect(null,mapDispatchToProps)(ChooseAction);

@@ -9,3 +9,9 @@ export const TrianglePageContainer = styled.div`
     mix-blend-mode: darken;
     justify-content:space-between;
 `
+
+export const Test = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`

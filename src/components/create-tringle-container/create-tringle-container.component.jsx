@@ -12,7 +12,7 @@ const FormReduxComponent = CreateFormComponent('createTriangle');
 const CreateTriangleContainer = (props)=>(
     <UpdateTriangleContainer>
         <UpdateTringle/>
-        <FormReduxComponent
+        <FormReduxComponent 
             onSubmit={props.createTriangle}
             onClose={props.closeForm}
             />
